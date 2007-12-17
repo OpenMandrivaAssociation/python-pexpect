@@ -12,7 +12,6 @@ Source2: %{oname}-examples.tar.bz2
 Summary: An efficient, pure-python replacement for Expect
 License: Python Software Foundation License
 Group: Development/Python
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Url: http://pexpect.sourceforge.net/
 BuildRequires: python >= %{pyver}
 BuildRequires: libpython-devel >= %{pyver}
