@@ -1,52 +1,51 @@
-%define ver 0.98
+%define module  pexpect
+%define name    python-%{module}
+%define version 2.3
 %define release %mkrel 4
-%define oname pexpect
-%define dname %{oname}-%{ver}
 
-Name: python-%oname
-Version: %{ver}
-Release: %{release}
-Source0: %{dname}.tar.bz2
-Source1: %{oname}-doc.tar.bz2
-Source2: %{oname}-examples.tar.bz2
-Summary: An efficient, pure-python replacement for Expect
-License: Python Software Foundation License
-Group: Development/Python
-BuildRoot: %{_tmppath}/%{name}-buildroot
-Url: http://pexpect.sourceforge.net/
-BuildRequires: python >= %{pyver}
-BuildRequires: libpython-devel >= %{pyver}
-BuildArch: noarch
+Summary:       An efficient, pure Python replacement for Expect
+Name: 	       %{name}
+Version:       %{version}
+Release:       %{release}
+Source0:       %{module}-%{version}.tar.lzma
+License:       MIT
+Group:         Development/Python
+Url:           http://pexpect.sourceforge.net/
+BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildArch:     noarch
+BuildRequires: python
+BuildRequires: python-devel
 
 %description
-This is a pure-python replacement for Expect, a module that
-allows easy control of other applications (including interactive
-applications that would drive popen crazy). It's not 100%
-compatible with the real thing, but its at least 90% compatible,
-and much easier to use.
+Pexpect is a pure Python module for spawning child applications,
+controlling them, and responding to expected patterns in their
+output. Pexpect works like Don Libes' Expect. Pexpect allows your
+script to spawn a child application and control it as if a human were
+typing commands.
+
+Pexpect can be used for automating interactive applications such as
+ssh, ftp, passwd, telnet, etc. It can be used to a automate setup
+scripts for duplicating software package installations on different
+servers. It can be used for automated software testing. Pexpect is in
+the spirit of Don Libes' Expect, but Pexpect is pure Python. Unlike
+other Expect-like modules for Python, Pexpect does not require TCL or
+Expect, nor does it require C extensions to be compiled. It should work
+on any platform that supports the standard Python pty module. The
+Pexpect interface was designed to be easy to use.
 
 %prep
-%setup -q -n %{dname}
-%setup -q -T -D -a 1 -n %{dname}
-%setup -q -T -D -a 2 -n %{dname}
-rm -rf doc/CVS
-rm -rf examples/CVS
+%setup -q -n %{module}-%{version}
 
 %build
-python setup.py build
+%__python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-python setup.py install --root $RPM_BUILD_ROOT
+%__rm -rf %{buildroot}
+%__python setup.py install --root=%{buildroot} --record=FILELIST
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+%__rm -rf %{buildroot}
 
-%files
+%files -f FILELIST
 %defattr(-,root,root)
-%doc README.txt PKG-INFO doc examples
-%{python_sitelib}/%{oname}.py*
-%{python_sitelib}/*.egg-info
-
-
-
+%doc README LICENSE doc/ examples/
