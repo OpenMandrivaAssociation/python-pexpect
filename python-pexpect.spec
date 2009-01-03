@@ -1,7 +1,7 @@
 %define module  pexpect
 %define name    python-%{module}
 %define version 2.3
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:       An efficient, pure Python replacement for Expect
 Name: 	       %{name}
