@@ -1,13 +1,13 @@
 %define module  pexpect
 %define name    python-%{module}
-%define version 2.3
-%define release %mkrel 6
+%define version 2.4
+%define release %mkrel 1
 
 Summary:       An efficient, pure Python replacement for Expect
 Name: 	       %{name}
 Version:       %{version}
 Release:       %{release}
-Source0:       %{module}-%{version}.tar.lzma
+Source0:       %{module}-%{version}.tar.gz
 License:       MIT
 Group:         Development/Python
 Url:           http://pexpect.sourceforge.net/
