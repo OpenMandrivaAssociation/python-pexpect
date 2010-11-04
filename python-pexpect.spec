@@ -1,7 +1,7 @@
 %define module  pexpect
 %define name    python-%{module}
 %define version 2.4
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:       An efficient, pure Python replacement for Expect
 Name: 	       %{name}
@@ -41,6 +41,7 @@ Pexpect interface was designed to be easy to use.
 
 %install
 %__rm -rf %{buildroot}
+PYTHONDONTWRITEBYTECODE= \
 %__python setup.py install --root=%{buildroot} --record=FILELIST
 
 %clean
