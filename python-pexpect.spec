@@ -70,24 +70,20 @@ popd
 
 %install
 pushd python2
-PYTHONDONTWRITEBYTECODE= \
-%__python setup.py install --skip-build --root=%{buildroot} --install-lib %{python_sitelib} --record=FILELIST2
+PYTHONDONTWRITEBYTECODE=  %__python setup.py install --skip-build --root=%{buildroot} --install-lib %{python_sitelib}
 popd
 
 pushd python3
-python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{python3_sitelib} --record=FILELIST3
+PYTHONDONTWRITEBYTECODE=  python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{python3_sitelib}
 popd
 
-%files -f python2/FILELIST2
+%files
 %doc python2/README python2/doc python2/examples python2/LICENSE
-%{python_sitelib}/*
-%exclude %{python_sitelib}/pexpect/tests/
+%{py_puresitedir}/*
 
-%files -n python3-pexpect -f python3/FILELIST3
+%files -n python3-pexpect
 %doc python3/README python3/doc python3/examples python3/LICENSE
-%{python3_sitelib}/*
-%exclude %{python3_sitelib}/pexpect/tests/
-
+%{py3_puresitedir}/*
 
 
 %changelog
