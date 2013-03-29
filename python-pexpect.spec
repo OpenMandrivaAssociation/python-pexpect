@@ -77,6 +77,9 @@ pushd python3
 PYTHONDONTWRITEBYTECODE=  python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{python3_sitelib}
 popd
 
+rm -rf %{buildroot}%{py_puresitedir}/%{module}/tests*
+rm -rf %{buildroot}%{py3_puresitedir}/%{module}/tests*
+
 %files
 %doc python2/README python2/doc python2/examples python2/LICENSE
 %{py_puresitedir}/*
