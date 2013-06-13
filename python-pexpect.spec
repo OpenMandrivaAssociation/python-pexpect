@@ -2,9 +2,9 @@
 
 Summary:       An efficient, pure Python replacement for Expect
 Name: 	       python-%{module}
-Version:       2.5
+Version:       2.5.1
 Release:       1
-Source0:       http://pypi.python.org/packages/source/p/pexpect-u/%{module}-u-%{version}.tar.gz
+Source0:       http://pypi.python.org/packages/source/p/pexpect-u/pexpect-u-%{version}.tar.gz
 License:       MIT
 Group:         Development/Python
 Url:           http://pexpect.sourceforge.net/
@@ -77,9 +77,6 @@ pushd python3
 PYTHONDONTWRITEBYTECODE=  python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{python3_sitelib}
 popd
 
-rm -rf %{buildroot}%{py_puresitedir}/%{module}/tests*
-rm -rf %{buildroot}%{py3_puresitedir}/%{module}/tests*
-
 %files
 %doc python2/README python2/doc python2/examples python2/LICENSE
 %{py_puresitedir}/*
@@ -133,4 +130,5 @@ rm -rf %{buildroot}%{py3_puresitedir}/%{module}/tests*
 
 * Sun Dec 05 2004 Michael Scherer <misc@mandrake.org> 0.98-3mdk
 - Rebuild for new python
+
 
