@@ -1,0 +1,2 @@
+# Intentional -- those aren't scripts but python modules
+addFilter("E: non-executable-script")
