@@ -3,7 +3,7 @@
 Summary:       An efficient, pure Python replacement for Expect
 Name: 	       python-%{module}
 Version:       2.5.1
-Release:       1
+Release:       2
 Source0:       http://pypi.python.org/packages/source/p/pexpect-u/pexpect-u-%{version}.tar.gz
 Source100:     %name.rpmlintrc
 License:       MIT
