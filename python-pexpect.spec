@@ -3,14 +3,16 @@
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
 Version:	2.5.1
-Release:	7
+Release:	8
 License:	MIT
 Group:		Development/Python
 Url:		http://pexpect.sourceforge.net/
 Source0:	http://pypi.python.org/packages/source/p/pexpect-u/pexpect-u-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 BuildArch:	noarch
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python3-distribute
+%rename python3-pexpect
 
 %description
 Pexpect is a pure Python module for spawning child applications,
@@ -29,13 +31,13 @@ Expect, nor does it require C extensions to be compiled. It should work
 on any platform that supports the standard Python pty module. The
 Pexpect interface was designed to be easy to use.
 
-%package -n python3-pexpect
-Summary:	Unicode-aware Pure Python Expect-like module for Python 3
+%package -n python2-pexpect
+Summary:	Unicode-aware Pure Python Expect-like module for Python 2
 Group:		Development/Python
-BuildRequires:	pkgconfig(python3)
-BuildRequires:	python3-distribute
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	python2-distribute
 
-%description -n python3-pexpect
+%description -n python2-pexpect
 Pexpect is a pure Python module for spawning child applications,
 controlling them, and responding to expected patterns in their
 output. Pexpect works like Don Libes' Expect. Pexpect allows your
@@ -60,27 +62,27 @@ find python3 -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 
 %build
 pushd python2
-%__python setup.py build
+%__python2 setup.py build
 popd
 
 pushd python3
-python3 setup.py build
+%__python3 setup.py build
 popd
 
 %install
 pushd python2
-PYTHONDONTWRITEBYTECODE=  %__python setup.py install --skip-build --root=%{buildroot} --install-lib %{python_sitelib}
+PYTHONDONTWRITEBYTECODE=  %__python2 setup.py install --skip-build --root=%{buildroot} --install-lib %{py2_puresitedir}
 popd
 
 pushd python3
-PYTHONDONTWRITEBYTECODE=  python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{python3_sitelib}
+PYTHONDONTWRITEBYTECODE=  %__python3 setup.py install --skip-build --root=%{buildroot} --install-lib %{py3_puresitedir}
 popd
 
 %files
-%doc python2/README python2/doc python2/examples python2/LICENSE
-%{py_puresitedir}/*
-
-%files -n python3-pexpect
 %doc python3/README python3/doc python3/examples python3/LICENSE
 %{py3_puresitedir}/*
+
+%files -n python2-pexpect
+%doc python2/README python2/doc python2/examples python2/LICENSE
+%{py2_puresitedir}/*
 
