@@ -2,12 +2,12 @@
 
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
-Version:	2.5.1
-Release:	9
+Version:	3.2
+Release:	1
 License:	MIT
 Group:		Development/Python
 Url:		http://pexpect.sourceforge.net/
-Source0:	http://pypi.python.org/packages/source/p/pexpect-u/pexpect-u-%{version}.tar.gz
+Source0:	http://pypi.python.org/packages/source/p/pexpect/pexpect-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
@@ -56,7 +56,7 @@ Pexpect interface was designed to be easy to use.
 
 %prep
 %setup -q -c
-mv pexpect-u-%{version} python2
+mv pexpect-%{version} python2
 cp -r python2 python3
 find python3 -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 
@@ -79,10 +79,10 @@ PYTHONDONTWRITEBYTECODE=  %__python3 setup.py install --skip-build --root=%{buil
 popd
 
 %files
-%doc python3/README python3/doc python3/examples python3/LICENSE
+%doc python3/doc python3/examples python3/LICENSE
 %{py3_puresitedir}/*
 
 %files -n python2-pexpect
-%doc python2/README python2/doc python2/examples python2/LICENSE
+%doc python2/doc python2/examples python2/LICENSE
 %{py2_puresitedir}/*
 
