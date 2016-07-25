@@ -3,7 +3,7 @@
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
 Version:	4.2.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Python
 Url:		http://pexpect.sourceforge.net/
@@ -12,6 +12,7 @@ Source100:	%{name}.rpmlintrc
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3-distribute
+Requires:	python-ptyprocess
 %rename python3-pexpect
 
 %description
@@ -34,6 +35,7 @@ Pexpect interface was designed to be easy to use.
 %package -n python2-pexpect
 Summary:	Unicode-aware Pure Python Expect-like module for Python 2
 Group:		Development/Python
+Requires:	python2-ptyprocess
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	python2-distribute
 
