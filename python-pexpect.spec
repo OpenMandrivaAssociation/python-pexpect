@@ -2,12 +2,12 @@
 
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
-Version:	4.2.0
-Release:	2
+Version:	4.3
+Release:	1
 License:	MIT
 Group:		Development/Python
 Url:		http://pexpect.sourceforge.net/
-Source0:	http://pypi.python.org/packages/source/p/pexpect/pexpect-%{version}.tar.gz
+Source0:	https://github.com/pexpect/pexpect/archive/%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 BuildArch:	noarch
 BuildRequires:	pkgconfig(python3)
