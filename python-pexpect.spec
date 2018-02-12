@@ -3,7 +3,7 @@
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
 Version:	4.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Python
 Url:		http://pexpect.sourceforge.net/
