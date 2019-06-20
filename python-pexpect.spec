@@ -2,7 +2,7 @@
 
 Summary:	An efficient, pure Python replacement for Expect
 Name:		python-%{module}
-Version:	4.6
+Version:	4.7.0
 Release:	1
 License:	MIT
 Group:		Development/Python
