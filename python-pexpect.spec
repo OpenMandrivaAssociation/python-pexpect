@@ -36,8 +36,8 @@ Pexpect interface was designed to be easy to use.
 Summary:	Unicode-aware Pure Python Expect-like module for Python 2
 Group:		Development/Python
 Requires:	python2-ptyprocess
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	python2-distribute
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python2-setuptools
 
 %description -n python2-pexpect
 Pexpect is a pure Python module for spawning child applications,
