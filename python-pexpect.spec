@@ -6,7 +6,7 @@ Version:	4.8.0
 Release:	2
 License:	MIT
 Group:		Development/Python
-Url:		http://pexpect.sourceforge.net/
+Url:		https://pexpect.sourceforge.net/
 Source0:	https://github.com/pexpect/pexpect/archive/%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 BuildArch:	noarch
