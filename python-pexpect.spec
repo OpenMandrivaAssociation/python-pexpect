@@ -3,7 +3,7 @@
 Name:		python-pexpect
 Summary:	An efficient, pure Python replacement for Expect
 Version:	4.9.0
-Release:	1
+Release:	2
 License:	ISC
 Group:		Development/Python
 URL:		https://github.com/pexpect/pexpect

@@ -1,2 +1,3 @@
-# Intentional -- those aren't scripts but python modules
-addFilter("E: non-executable-script")
+# Intentional -- those aren't scripts but python modules.
+# setBadness survives the srpm-only rpmlint run; an unused addFilter is fatal.
+setBadness("non-executable-script", 0)
